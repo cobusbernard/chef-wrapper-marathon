@@ -1,0 +1,10 @@
+name             'chef-wrapper-marathon'
+maintainer       'Cobus Bernard'
+maintainer_email 'me@cobus.io'
+license          'MIT'
+description      'Installs/Configures chef-wrapper-marathon'
+long_description 'Installs/Configures chef-wrapper-marathon'
+version          '0.1.0'
+
+depends 'marathon', '~> 2.1.0'
+depends 'docker', '~> 2.0'
