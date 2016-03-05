@@ -24,14 +24,18 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 #
 
+instances = search(:node, "role:mesos-master AND chef_environment:#{node.chef_environment}")
+instances.sort_by!{ |n| n[:fqdn] }
 
-## Marathon
-node.set['marathon']['flags']['master'] = 'zk://' + instances.map{ |n| "#{n[:fqdn]}:2181" }.join(',') + '/mesos'
+# No point in setting up if there aren't any master nodes in the cluster.
+if instances.length > 0
+  node.set['marathon']['flags']['master'] = 'zk://' + instances.map{ |n| "#{n[:fqdn]}:2181" }.join(',') + '/mesos'
 
-include_recipe 'marathon::install'
-include_recipe 'marathon::service'
+  include_recipe 'marathon::install'
+  include_recipe 'marathon::service'
 
-## Docker
-docker_service 'default' do
-  action [:create, :start]
+  ## Docker
+  docker_service 'default' do
+    action [:create, :start]
+  end
 end
