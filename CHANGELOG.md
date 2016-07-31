@@ -1,4 +1,12 @@
-# 0.1.2
+# 0.1.5
+
+Downgrading to 0.15.6 due to work_dir parameter issues.
+
+# 0.1.4
+
+Setting the work_dir parameter.
+
+# 0.1.3
 
 Upgrading to latest version 1.1.2.
 

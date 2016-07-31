@@ -1,3 +1,3 @@
-override['marathon']['version'] = '1.1.2'
+override['marathon']['version'] = '0.15.6'
 override['marathon']['source']['url'] = "http://downloads.mesosphere.com/marathon/v#{node['marathon']['version']}/marathon-#{node['marathon']['version']}.tgz"
-override['marathon']['source']['checksum'] = 'db8d8fc88bb701337dc76d6aa9fe8366a6ae05a3bfb7abdd39a26dbe0d691b09'
+override['marathon']['source']['checksum'] = 'ed34c554c357b3d71b67fdfc860d253a60d21e43371e561d959e1f64a71868df'
